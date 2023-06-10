@@ -15,7 +15,8 @@ import java.util.Date;
 @Service
 @Transactional
 public class BookAppointmentService {
-
+//3- By default rollback only works with unchecked exception.
+// If you want to rollback checked exceptions also then you will have to write it like this @Transactional(rollbackFor = Throwable.class) so now if any exception (checked or unchecked) is raised rollback will work.
     @Autowired
     private PatientRepo patientRepo;
 
@@ -38,6 +39,8 @@ public class BookAppointmentService {
 
         return "Appointment booked successfully!! with : " + appointmentNo;
     }
+
+
 }
 
 
